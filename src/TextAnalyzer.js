@@ -132,4 +132,35 @@ export class TextAnalyzer {
 
     return longestWord
   }
+
+  /**
+   * Finds the most common word length of the words of the string.
+   *
+   * @param {number} numberOfWordLengths – The number of word lengths to return.
+   * @returns {Array} – The most common word lengths.
+   */
+  findMostCommonWordLength (numberOfWordLengths = 10) {
+    if (typeof numberOfWordLengths !== 'number') {
+      console.log('Please provide a number of type number to use numberOfWordLengths.')
+    }
+
+    const allWords = this.#wordAnalyzer.allWords
+    const wordLengthCount = {}
+
+    for (const word of allWords) {
+      if (wordLengthCount[word.length]) {
+        wordLengthCount[word.length].wordCount += 1
+      } else {
+        wordLengthCount[word.length] = { wordCount: 1 }
+      }
+    }
+
+    const allWordsAndLengths = Object.entries(wordLengthCount)
+
+    allWordsAndLengths.sort((a, b) => b[1].wordCount - a[1].wordCount)
+
+    const mostCommonWordLengths = allWordsAndLengths.slice(0, numberOfWordLengths).map(word => Number(word[0]))
+
+    return mostCommonWordLengths
+  }
 }
