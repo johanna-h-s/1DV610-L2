@@ -107,4 +107,29 @@ export class TextAnalyzer {
 
     return mostUsedWords
   }
+
+  /**
+   * Finds the longest words of the string.
+   *
+   * @param { number } numberOfWords – The number of words to find.
+   * @returns { string } - The longest words of the analyzed string.
+   */
+  findLongestWord (numberOfWords = 1) {
+    if (typeof numberOfWords !== 'number') {
+      console.log('Please provide a number of type number to use findLongestWord.')
+    }
+
+    const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
+
+    wordsAndLengts.sort((a, b) => b[1].chars - a[1].chars)
+
+    const longestWord = []
+
+    for (let i = 0; i < numberOfWords; i++) {
+      // TODO: Add functionality to check if more than one word has the same length.
+      longestWord.push(wordsAndLengts[i][0])
+    }
+
+    return longestWord
+  }
 }
