@@ -1,5 +1,5 @@
 /**
- * The main script file of the application.
+ * The main script file of the tiny text analyzer.
  *
  * @author Johanna Stenbeck <js226rv@student.lnu.se>
  * @version 1.1.0
@@ -11,3 +11,7 @@ const textToAnalyze = "Your thought, Fantasizing on a sodden brain, Like a bloat
 const numberToTry = 4
 
 const textAnalyzer = new TextAnalyzer(textToAnalyze)
+
+console.log(textAnalyzer.findUniqueWords())
+console.log(textAnalyzer.countWords())
+console.log(textAnalyzer.countUniqueWords())

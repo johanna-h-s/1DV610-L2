@@ -65,4 +65,26 @@ export class TextAnalyzer {
 
     return uniqueWords.sort()
   }
+
+  /**
+   * Counts the total number of words used.
+   *
+   * @returns {number} – The total number of words.
+   */
+  countWords () {
+    const wordCount = this.#wordAnalyzer.allWords
+
+    return wordCount.length
+  }
+
+  /**
+   * Counts the number of unique words used.
+   *
+   * @returns {number} – The number of unique words.
+   */
+  countUniqueWords () {
+    const allUniqueWords = this.findUniqueWords()
+
+    return allUniqueWords.length
+  }
 }
