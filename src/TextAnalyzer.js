@@ -87,4 +87,24 @@ export class TextAnalyzer {
 
     return allUniqueWords.length
   }
+
+  /**
+   * Finds the most used words of the string.
+   *
+   * @param {number} numberOfWords – Number of words to find.
+   * @returns {Array} – The most used words in descending order.
+   */
+  findMostUsedWords (numberOfWords = 10) {
+    if (typeof numberOfWords !== 'number') {
+      console.log('Please provide a number of type number to use findMostUsedWords.')
+    }
+
+    const allUniqueWords = Object.entries(this.#wordAnalyzer.uniqueWordsFreqenzy)
+
+    allUniqueWords.sort((a, b) => b[1].count - a[1].count)
+
+    const mostUsedWords = allUniqueWords.slice(0, numberOfWords).map(word => word[0])
+
+    return mostUsedWords
+  }
 }
