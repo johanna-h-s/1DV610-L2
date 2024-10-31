@@ -12,3 +12,4 @@ const textToAnalyze = "Your thought, Fantasizing on a sodden brain, Like a bloat
 const wordAnalyzer = new WordAnalyzer(textToAnalyze)
 
 console.log(wordAnalyzer.allWords)
+console.log(wordAnalyzer.uniqueWordsFreqenzy)
