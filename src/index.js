@@ -13,3 +13,4 @@ const wordAnalyzer = new WordAnalyzer(textToAnalyze)
 
 console.log(wordAnalyzer.allWords)
 console.log(wordAnalyzer.uniqueWordsFreqenzy)
+console.log(wordAnalyzer.uniqueWordsLength)
