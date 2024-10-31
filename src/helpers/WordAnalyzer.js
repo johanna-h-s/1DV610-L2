@@ -31,6 +31,13 @@ export class WordAnalyzer {
   #uniqueWordsFrequenzy
 
   /**
+   * All unique words of the string and their length.
+   *
+   * @type {Array}
+   */
+  #uniqueWordsLength
+
+  /**
    * Initializes a new instances of the WordAnalyzer class.
    *
    * @param {string} stringToAnalyze - The string to analyze.
@@ -41,7 +48,10 @@ export class WordAnalyzer {
     console.log('Word analyzer initialized.')
 
     this.#splitIntoWords()
-    this.#findWordFrequency()
+    this.#countWordFrequency()
+    // TODO: add functionality to make sure countWordFrequency
+    // is completed before countWordLengths runs.
+    this.#countWordLengths()
   }
 
   /**
@@ -61,7 +71,7 @@ export class WordAnalyzer {
   /**
    * Counts the frequenzy of all words.
    */
-  #findWordFrequency () {
+  #countWordFrequency () {
     // Reset and add first word to the uniqueWordCount object.
     this.#uniqueWordsFrequenzy = {
       [`${this.#allWords[0]}`]: { count: 1 }
@@ -88,6 +98,24 @@ export class WordAnalyzer {
   }
 
   /**
+   * Counts the length of all words.
+   */
+  #countWordLengths () {
+    const uniqueWords = []
+    const wordAndWordLengths = {}
+
+    for (const word in this.#uniqueWordsFrequenzy) {
+      uniqueWords.push(word.toLowerCase())
+    }
+
+    for (const word of uniqueWords) {
+      wordAndWordLengths[word] = { chars: word.length }
+    }
+
+    this.#uniqueWordsLength = wordAndWordLengths
+  }
+
+  /**
    * Returns all words as an array.
    *
    * @returns {Array} – All words from the string.
@@ -103,5 +131,14 @@ export class WordAnalyzer {
    */
   get uniqueWordsFreqenzy () {
     return this.#uniqueWordsFrequenzy
+  }
+
+  /**
+   * Returns all unique words and their word length.
+   *
+   * @returns {object} – All unique words in order of appearance and their word length.
+   */
+  get uniqueWordsLength () {
+    return this.#uniqueWordsLength
   }
 }
