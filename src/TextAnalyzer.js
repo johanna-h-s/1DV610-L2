@@ -5,13 +5,14 @@
  * @version 1.0.0
  */
 
-// import { WordAnalyzer } from './helpers/WordAnalyzer.js'
+import { WordAnalyzer } from './helpers/WordAnalyzer.js'
 
 /**
  * Represents a text analyzer.
  */
 export class TextAnalyzer {
   #stringToAnalyze
+  #wordAnalyzer
 
   /**
    * Initializes a new instances of the TextAnalyzer class.
@@ -32,12 +33,19 @@ export class TextAnalyzer {
       this.#stringToAnalyze = stringToAnalyze
 
       console.log('Text analyzer ready to use.')
+
+      this.#createWordAnalyzer()
     } else {
       console.log('The text analyzer can only analyze strings. Please provide a string.')
 
       throw new Error('The text analyzer can only analyze strings. Please provide a string.')
     }
+  }
 
-    console.log(this.#stringToAnalyze)
+  /**
+   * Creates a new instance of WordAnalyzer.
+   */
+  #createWordAnalyzer () {
+    this.#wordAnalyzer = new WordAnalyzer(this.#stringToAnalyze)
   }
 }
