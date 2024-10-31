@@ -17,6 +17,13 @@ export class WordAnalyzer {
   #stringToAnalyze
 
   /**
+   * All individual words of the string.
+   *
+   * @type {Array}
+   */
+  #allWords
+
+  /**
    * Initializes a new instances of the WordAnalyzer class.
    *
    * @param {string} stringToAnalyze - The string to analyze.
@@ -25,5 +32,30 @@ export class WordAnalyzer {
     this.#stringToAnalyze = stringToAnalyze
 
     console.log('Word analyzer initialized.')
+
+    this.#splitIntoWords()
+  }
+
+  /**
+   * Splits the string into individual words and adds them to the allWords array.
+   */
+  #splitIntoWords () {
+    const wordsOfString = this.#stringToAnalyze.trim()
+      .replaceAll(',', '')
+      .replaceAll('.', '')
+      .replaceAll('?', '')
+      .replaceAll('!', '')
+      .replaceAll('-', '')
+
+    this.#allWords = wordsOfString.split(' ')
+  }
+
+  /**
+   * Returns all words in an array.
+   *
+   * @returns {Array} – All words from the string.
+   */
+  get allWords () {
+    return this.#allWords
   }
 }

@@ -10,3 +10,5 @@ import { WordAnalyzer } from './helpers/WordAnalyzer.js'
 const textToAnalyze = "Your thought, Fantasizing on a sodden brain, Like a bloated lackey on a greasy couch sprawling, With my heart's bloody tatters, I'll mock it again. Until I'm contempt, I'll be ruthless and galling."
 
 const wordAnalyzer = new WordAnalyzer(textToAnalyze)
+
+console.log(wordAnalyzer.allWords)
