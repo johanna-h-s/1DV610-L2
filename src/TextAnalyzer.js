@@ -48,4 +48,21 @@ export class TextAnalyzer {
   #createWordAnalyzer () {
     this.#wordAnalyzer = new WordAnalyzer(this.#stringToAnalyze)
   }
+
+  /**
+   * Finds and returns all unique words sorted in alphabetical order.
+   *
+   * @returns {Array} - All unique words in lowercase, sorted alphabetically.
+   */
+  findUniqueWords () {
+    const uniqueWordsFreqenzy = this.#wordAnalyzer.uniqueWordsFreqenzy
+
+    const uniqueWords = []
+
+    for (const word in uniqueWordsFreqenzy) {
+      uniqueWords.push(word.toLowerCase())
+    }
+
+    return uniqueWords.sort()
+  }
 }
