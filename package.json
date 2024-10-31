@@ -1,0 +1,21 @@
+{
+    "name": "tiny-text-analyzer",
+    "version": "1.0.0",
+    "description": "A lightweight text analyzer",
+    "type": "module",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "node src/index.js",
+      "lint": "npx eslint ./src || exit 0",
+      "lint:fix": "npx eslint ./src --fix || exit 0"
+    },
+    "contributors": [
+      "Johanna Stenbeck <js226rv@student.lnu.se>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+      "@lnu/eslint-config": "^1.1.10"
+    }
+  }
+  
