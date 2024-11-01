@@ -6,11 +6,13 @@
  */
 
 import { TextAnalyzer } from './TextAnalyzer.js'
+import { CharAnalyzer } from './helpers/CharAnalyzer.js'
 
 const textToAnalyze = "Your thought, Fantasizing on a sodden brain, Like a bloated lackey on a greasy couch sprawling, With my heart's bloody tatters, I'll mock it again. Until I'm contempt, I'll be ruthless and galling."
 const numberToTry = 4
 
 const textAnalyzer = new TextAnalyzer(textToAnalyze)
+const charAnalyzer = new CharAnalyzer(textToAnalyze)
 
 console.log(textAnalyzer.findUniqueWords())
 console.log(textAnalyzer.countWords())
@@ -18,3 +20,5 @@ console.log(textAnalyzer.countUniqueWords())
 console.log(textAnalyzer.findMostUsedWords(4))
 console.log(textAnalyzer.findLongestWord(2))
 console.log(textAnalyzer.findMostCommonWordLength(2))
+console.log(charAnalyzer.charCount)
+console.log(charAnalyzer.charCountMinusWhitespace)
