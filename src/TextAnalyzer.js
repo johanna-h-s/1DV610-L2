@@ -6,6 +6,7 @@
  */
 
 import { WordAnalyzer } from './helpers/WordAnalyzer.js'
+import { CharAnalyzer } from './helpers/CharAnalyzer.js'
 
 /**
  * Represents a text analyzer.
@@ -13,6 +14,7 @@ import { WordAnalyzer } from './helpers/WordAnalyzer.js'
 export class TextAnalyzer {
   #stringToAnalyze
   #wordAnalyzer
+  #charAnalyzer
 
   /**
    * Initializes a new instances of the TextAnalyzer class.
@@ -35,6 +37,7 @@ export class TextAnalyzer {
       console.log('Text analyzer ready to use.')
 
       this.#createWordAnalyzer()
+      this.#createCharAnalyzer()
     } else {
       console.log('The text analyzer can only analyze strings. Please provide a string.')
 
@@ -47,6 +50,13 @@ export class TextAnalyzer {
    */
   #createWordAnalyzer () {
     this.#wordAnalyzer = new WordAnalyzer(this.#stringToAnalyze)
+  }
+
+  /**
+   * Creates a new instance of CharAnalyzer.
+   */
+  #createCharAnalyzer () {
+    this.#charAnalyzer = new CharAnalyzer(this.#stringToAnalyze)
   }
 
   /**
@@ -162,5 +172,36 @@ export class TextAnalyzer {
     const mostCommonWordLengths = allWordsAndLengths.slice(0, numberOfWordLengths).map(word => Number(word[0]))
 
     return mostCommonWordLengths
+  }
+
+  /**
+   * Computes the average word length of the string.
+   *
+   * @returns { number } – The average word length.
+   */
+  countAverageWordLength () {
+    const charCount = this.#charAnalyzer.charCountMinusWhitespace
+
+    const averageWordLength = (charCount / this.countWords())
+
+    return averageWordLength
+  }
+
+  /**
+   * Gets the total number of characrers used in the string.
+   *
+   * @returns { number } – The total number of characrers used in the string.
+   */
+  countChars () {
+    return this.#charAnalyzer.charCount
+  }
+
+  /**
+   * Gets the total number of characrers, except for whitespace, used in the string.
+   *
+   * @returns { number } – The total number of characrers but whitespaces used in the string.
+   */
+  countCharsMinusWhitespace () {
+    return this.#charAnalyzer.charCountMinusWhitespace
   }
 }
