@@ -104,8 +104,8 @@ export class TextAnalyzer {
    * @param {number} numberOfWords – Number of words to find.
    * @returns {Array} – The most used words in descending order.
    */
-  findMostUsedWords (numberOfWords = 10) {
-    if (typeof varibleToCheck !== 'number') {
+  findMostCommonWords (numberOfWords = 10) {
+    if (typeof numberOfWords !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
@@ -113,9 +113,9 @@ export class TextAnalyzer {
 
     allUniqueWords.sort((a, b) => b[1].count - a[1].count)
 
-    const mostUsedWords = allUniqueWords.slice(0, numberOfWords).map(word => word[0])
+    const mostCommonWords = allUniqueWords.slice(0, numberOfWords).map(word => word[0])
 
-    return mostUsedWords
+    return mostCommonWords
   }
 
   /**
@@ -125,7 +125,7 @@ export class TextAnalyzer {
    * @returns { string } - The longest words of the analyzed string.
    */
   findLongestWord (numberOfWords = 1) {
-    if (typeof varibleToCheck !== 'number') {
+    if (typeof numberOfWords !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
@@ -150,7 +150,7 @@ export class TextAnalyzer {
    * @returns { string } - The longest words of the analyzed string.
    */
   findShortestWord (numberOfWords = 1) {
-    if (typeof varibleToCheck !== 'number') {
+    if (typeof numberOfWords !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
@@ -204,7 +204,7 @@ export class TextAnalyzer {
    * @returns {Array} – The most common word lengths.
    */
   findMostCommonWordLength (numberOfWordLengths = 10) {
-    if (typeof varibleToCheck !== 'number') {
+    if (typeof numberOfWordLengths !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
@@ -257,5 +257,25 @@ export class TextAnalyzer {
    */
   countCharsMinusWhitespace () {
     return this.#charAnalyzer.charCountMinusWhitespace
+  }
+
+  /**
+   * Finds the most used chars of the string.
+   *
+   * @param {number} numberOfChars – Number of chars to find.
+   * @returns {Array} – The most common chars in descending order.
+   */
+  findMostCommonChars (numberOfChars = 10) {
+    if (typeof numberOfChars !== 'number') {
+      throw new Error('Passed argument is not a number. Please provide a number of type number.')
+    }
+
+    const uniqueCharsFreqenzy = Object.entries(this.#charAnalyzer.uniqueCharsFreqenzy)
+
+    uniqueCharsFreqenzy.sort((a, b) => b[1].count - a[1].count)
+
+    const mostCommonChars = uniqueCharsFreqenzy.slice(0, numberOfChars).map(word => word[0])
+
+    return mostCommonChars
   }
 }

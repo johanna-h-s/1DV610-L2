@@ -11,16 +11,17 @@ const textToAnalyze = "Your thought, Fantasizing on a sodden brain, Like a bloat
 const testText = 'one two three four five six seven'
 const numberToTry = 4
 
-const textAnalyzer = new TextAnalyzer(testText)
+const textAnalyzer = new TextAnalyzer(textToAnalyze)
 
-/* console.log(textAnalyzer.findUniqueWords())
+console.log(textAnalyzer.findUniqueWords())
 console.log(textAnalyzer.countWords())
 console.log(textAnalyzer.countUniqueWords())
-console.log(textAnalyzer.findMostUsedWords(4))
+console.log(textAnalyzer.findMostCommonWords(4))
 console.log(textAnalyzer.findLongestWord(2))
 console.log(textAnalyzer.findShortestWord(2))
 console.log(textAnalyzer.findMostCommonWordLength(2))
 console.log(textAnalyzer.countAverageWordLength())
 console.log(textAnalyzer.countChars())
 console.log(textAnalyzer.countCharsMinusWhitespace())
-console.log(textAnalyzer.findMedianWordLength()) */
+console.log(textAnalyzer.findMedianWordLength())
+console.log(textAnalyzer.findMostCommonChars(10))
