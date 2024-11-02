@@ -105,8 +105,8 @@ export class TextAnalyzer {
    * @returns {Array} – The most used words in descending order.
    */
   findMostUsedWords (numberOfWords = 10) {
-    if (typeof numberOfWords !== 'number') {
-      console.log('Please provide a number of type number to use findMostUsedWords.')
+    if (typeof varibleToCheck !== 'number') {
+      throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
     const allUniqueWords = Object.entries(this.#wordAnalyzer.uniqueWordsFreqenzy)
@@ -125,8 +125,8 @@ export class TextAnalyzer {
    * @returns { string } - The longest words of the analyzed string.
    */
   findLongestWord (numberOfWords = 1) {
-    if (typeof numberOfWords !== 'number') {
-      console.log('Please provide a number of type number to use findLongestWord.')
+    if (typeof varibleToCheck !== 'number') {
+      throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
     const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
@@ -150,8 +150,8 @@ export class TextAnalyzer {
    * @returns { string } - The longest words of the analyzed string.
    */
   findShortestWord (numberOfWords = 1) {
-    if (typeof numberOfWords !== 'number') {
-      console.log('Please provide a number of type number to use findLongestWord.')
+    if (typeof varibleToCheck !== 'number') {
+      throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
     const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
@@ -169,14 +169,43 @@ export class TextAnalyzer {
   }
 
   /**
+   * Finds the median word length of the words of the string.
+   *
+   * @returns { number } - The median word length of the words in the string.
+   */
+  findMedianWordLength () {
+    const allWords = this.#wordAnalyzer.allWords
+    const allWordLengths = []
+
+    for (const word of allWords) {
+      allWordLengths.push(word.length)
+    }
+
+    allWordLengths.sort()
+
+    let medianWordLength = 0
+
+    if (allWordLengths.length % 2 === 0) {
+      const firstMedianIndex = (allWordLengths.length / 2) - 1
+      const secondMedianIndex = allWordLengths.length / 2
+      medianWordLength = (allWordLengths[firstMedianIndex] + allWordLengths[secondMedianIndex]) / 2
+    } else {
+      const medianIndex = Math.ceil(allWordLengths.length / 2) - 1
+      medianWordLength = allWordLengths[medianIndex]
+    }
+
+    return medianWordLength
+  }
+
+  /**
    * Finds the most common word length of the words of the string.
    *
    * @param {number} numberOfWordLengths – The number of word lengths to return.
    * @returns {Array} – The most common word lengths.
    */
   findMostCommonWordLength (numberOfWordLengths = 10) {
-    if (typeof numberOfWordLengths !== 'number') {
-      console.log('Please provide a number of type number to use numberOfWordLengths.')
+    if (typeof varibleToCheck !== 'number') {
+      throw new Error('Passed argument is not a number. Please provide a number of type number.')
     }
 
     const allWords = this.#wordAnalyzer.allWords
