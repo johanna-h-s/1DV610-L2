@@ -22,5 +22,5 @@ console.log(textAnalyzer.findShortestWord(2))
 console.log(textAnalyzer.findMostCommonWordLength(2))
 console.log(textAnalyzer.countAverageWordLength())
 console.log(textAnalyzer.countChars())
-console.log(textAnalyzer.countCharsMinusWhitespace()) */
-console.log(textAnalyzer.findMedianWordLength())
+console.log(textAnalyzer.countCharsMinusWhitespace())
+console.log(textAnalyzer.findMedianWordLength()) */

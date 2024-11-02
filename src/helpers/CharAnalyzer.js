@@ -17,6 +17,13 @@ export class CharAnalyzer {
   #stringToAnalyze
 
   /**
+   * All individual characters of the string.
+   *
+   * @type {Array}
+   */
+  #allChars
+
+  /**
    * The total number of characters used in the string.
    *
    * @type {number}
@@ -31,6 +38,13 @@ export class CharAnalyzer {
   #charCountMinusWhitespace
 
   /**
+   * All unique chars of the string and their frequenzy of use.
+   *
+   * @type {object}
+   */
+  #uniqueCharsFrequenzy
+
+  /**
    * Initializes a new instances of the CharAnalyzer class.
    *
    * @param {string} stringToAnalyze - The string to analyze.
@@ -42,6 +56,8 @@ export class CharAnalyzer {
 
     this.#countChars()
     this.#countCharsMinusWhitespace()
+
+    this.#countCharFrequency()
   }
 
   /**
@@ -61,6 +77,45 @@ export class CharAnalyzer {
   }
 
   /**
+   * Splits the string into individual characters and adds them to the allChars array.
+   */
+  #splitIntoChars () {
+    this.#allChars = []
+
+    for (let i = 0; i < this.#stringToAnalyze.length; i++) {
+      this.#allChars.push(this.#stringToAnalyze.slice(i, i + 1))
+    }
+  }
+
+  /**
+   * Counts the frequenzy of all words.
+   */
+  #countCharFrequency () {
+    this.#splitIntoChars()
+
+    this.#uniqueCharsFrequenzy = {}
+
+    // Iterate over the chars of #allChars.
+    for (let i = 1; i < this.#allChars.length; i++) {
+      const char = this.#allChars[i]
+      let duplicate = false
+
+      // Traverse the unique chars of uniqueCharsFrequenzy.
+      for (const uniqueChar in this.#uniqueCharsFrequenzy) {
+        if (char === uniqueChar) {
+          this.#uniqueCharsFrequenzy[uniqueChar].count += 1
+          duplicate = true
+        }
+      }
+
+      // Add char and set char count to 1 if not found in uniqueCharsFrequenzy.
+      if (!duplicate) {
+        this.#uniqueCharsFrequenzy[char] = { count: 1 }
+      }
+    }
+  }
+
+  /**
    * Returns character count.
    *
    * @returns {number} – The number of characters used in the string.
@@ -76,5 +131,14 @@ export class CharAnalyzer {
    */
   get charCountMinusWhitespace () {
     return this.#charCountMinusWhitespace
+  }
+
+  /**
+   * Returns all unique characters and their frequenzy.
+   *
+   * @returns {object} – All unique characters in order of appearance and their frequenzy of use.
+   */
+  get uniqueCharsFreqenzy () {
+    return this.#uniqueCharsFrequenzy
   }
 }

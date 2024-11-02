@@ -26,14 +26,14 @@ export class WordAnalyzer {
   /**
    * All unique words of the string and their frequenzy of use.
    *
-   * @type {Array}
+   * @type {object}
    */
   #uniqueWordsFrequenzy
 
   /**
    * All unique words of the string and their length.
    *
-   * @type {Array}
+   * @type {object}
    */
   #uniqueWordsLength
 
@@ -72,7 +72,7 @@ export class WordAnalyzer {
    * Counts the frequenzy of all words.
    */
   #countWordFrequency () {
-    // Reset and add first word to the uniqueWordCount object.
+    // Reset and add first word to the uniqueWordsFrequenzy object.
     this.#uniqueWordsFrequenzy = {
       [`${this.#allWords[0]}`]: { count: 1 }
     }
@@ -82,7 +82,7 @@ export class WordAnalyzer {
       const word = this.#allWords[i]
       let duplicate = false
 
-      // Traverse the unique words of uniqueWordCount.
+      // Traverse the unique words of uniqueWordsFrequenzy.
       for (const uniqueWord in this.#uniqueWordsFrequenzy) {
         if (word === uniqueWord) {
           this.#uniqueWordsFrequenzy[uniqueWord].count += 1
@@ -90,7 +90,7 @@ export class WordAnalyzer {
         }
       }
 
-      // Add word and set word count to 1 if not found in uniqueWordCount.
+      // Add word and set word count to 1 if not found in uniqueWordsFrequenzy.
       if (!duplicate) {
         this.#uniqueWordsFrequenzy[word] = { count: 1 }
       }
