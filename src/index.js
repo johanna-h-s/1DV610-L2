@@ -8,12 +8,12 @@
 import { TextAnalyzer } from './TextAnalyzer.js'
 
 const textToAnalyze = "Your thought, Fantasizing on a sodden brain, Like a bloated lackey on a greasy couch sprawling, With my heart's bloody tatters, I'll mock it again. Until I'm contempt, I'll be ruthless and galling."
-const testText = 'one two three four five six seven'
+const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.'
 const numberToTry = 4
 
-const textAnalyzer = new TextAnalyzer(textToAnalyze)
+const textAnalyzer = new TextAnalyzer(testText)
 
-console.log(textAnalyzer.findUniqueWords())
+/* console.log(textAnalyzer.findUniqueWords())
 console.log(textAnalyzer.countWords())
 console.log(textAnalyzer.countUniqueWords())
 console.log(textAnalyzer.findMostCommonWords(4))
@@ -24,4 +24,6 @@ console.log(textAnalyzer.countAverageWordLength())
 console.log(textAnalyzer.countChars())
 console.log(textAnalyzer.countCharsMinusWhitespace())
 console.log(textAnalyzer.findMedianWordLength())
-console.log(textAnalyzer.findMostCommonChars(10))
+console.log(textAnalyzer.findMostCommonChars(10)) */
+
+console.log(textAnalyzer.findUniqueWords())

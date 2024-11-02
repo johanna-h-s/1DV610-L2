@@ -55,17 +55,13 @@ export class WordAnalyzer {
   }
 
   /**
-   * Splits the string into individual words and adds them to the allWords array.
+   * Splits the string into individual, lowercase words and adds them to the allWords array.
    */
   #splitIntoWords () {
-    const wordsOfString = this.#stringToAnalyze.trim()
-      .replaceAll(',', '')
-      .replaceAll('.', '')
-      .replaceAll('?', '')
-      .replaceAll('!', '')
-      .replaceAll('-', '')
+    const wordsOfString = this.#stringToAnalyze.trim().toLowerCase()
+      .replaceAll(/[^a-zåäöéà\s]/g, '')
 
-    this.#allWords = wordsOfString.split(' ')
+    this.#allWords = wordsOfString.split(/\s+/).filter(word => word !== '')
   }
 
   /**
