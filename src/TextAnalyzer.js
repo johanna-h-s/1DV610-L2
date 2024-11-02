@@ -144,6 +144,31 @@ export class TextAnalyzer {
   }
 
   /**
+   * Finds the shortest words of the string.
+   *
+   * @param { number } numberOfWords – The number of words to find.
+   * @returns { string } - The longest words of the analyzed string.
+   */
+  findShortestWord (numberOfWords = 1) {
+    if (typeof numberOfWords !== 'number') {
+      console.log('Please provide a number of type number to use findLongestWord.')
+    }
+
+    const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
+
+    wordsAndLengts.sort((a, b) => a[1].chars - b[1].chars)
+
+    const shortestWord = []
+
+    for (let i = 0; i < numberOfWords; i++) {
+      // TODO: Add functionality to check if more than one word has the same length.
+      shortestWord.push(wordsAndLengts[i][0])
+    }
+
+    return shortestWord
+  }
+
+  /**
    * Finds the most common word length of the words of the string.
    *
    * @param {number} numberOfWordLengths – The number of word lengths to return.
