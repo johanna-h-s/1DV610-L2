@@ -152,3 +152,64 @@ test('Find the median word length of string with even word count.', () => {
   expect(actualValue).toEqual(expectedValue)
 }
 )
+
+test('Find the median word length of string with uneven word count.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  const expectedValue = 3
+
+  // Test.
+  const actualValue = textAnalyzer.findMedianWordLength()
+
+  // Assert.
+  expect(actualValue).toEqual(expectedValue)
+}
+)
+
+test('Find the most common word length.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  const expectedValue = [3]
+
+  // Test.
+  const actualValue = textAnalyzer.findMostCommonWordLength(1)
+
+  // Assert.
+  expect(actualValue).toEqual(expectedValue)
+}
+)
+
+test('Find the 11 most common word length of string with less than 11 different word lengths.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  // Test and assert.
+  expect(() => {
+    textAnalyzer.findMostCommonWordLength(55)
+  }).toThrow('The number is larger than the unique number of word lengths.')
+}
+)
+
+test('Find the average word length.', () => {
+  // Arrange and prepare.
+  const testText = 'Ett två tre fyra fem.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  const expectedValue = 3.2
+
+  // Test.
+  const actualValue = textAnalyzer.countAverageWordLength()
+
+  // Assert.
+  expect(actualValue).toEqual(expectedValue)
+}
+)

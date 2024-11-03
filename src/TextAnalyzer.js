@@ -60,6 +60,21 @@ export class TextAnalyzer {
   }
 
   /**
+   * Counts the total number of characters of the words in the string.
+   *
+   * @returns {number} – The total number of chars of the words in the string.
+   */
+  #countCharsOfAllWords () {
+    let charCountOfAllWords = 0
+
+    for (const word of this.#wordAnalyzer.allWords) {
+      charCountOfAllWords += word.length
+    }
+
+    return charCountOfAllWords
+  }
+
+  /**
    * Finds and returns all unique words sorted in alphabetical order.
    *
    * @returns {Array} - All unique words in lowercase, sorted alphabetically.
@@ -215,7 +230,7 @@ export class TextAnalyzer {
     if (typeof numberOfWordLengths !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
     } else if (numberOfWordLengths > allWords.length) {
-      throw new Error('The number is larger than the word count.')
+      throw new Error('The number is larger than the unique number of word lengths.')
     }
 
     const wordLengthCount = {}
@@ -243,7 +258,7 @@ export class TextAnalyzer {
    * @returns { number } – The average word length.
    */
   countAverageWordLength () {
-    const charCount = this.#charAnalyzer.charCountMinusWhitespace
+    const charCount = this.#countCharsOfAllWords()
 
     const averageWordLength = (charCount / this.countWords())
 

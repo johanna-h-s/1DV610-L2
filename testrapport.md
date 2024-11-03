@@ -12,6 +12,10 @@
 | findLongestWord() | TC2 | Jest unit test | Pass |
 | findShortestWord() | TC1 | Jest unit test | Pass |
 | findShortestWord() | TC2 | Jest unit test | Pass |
+| findMedianWordLength() | TC1 | Jest unit test | Pass |
+| findMedianWordLength() | TC2 | Jest unit test | Pass |
+| findMostCommonWordLength() | TC1 | Jest unit test | Pass |
+| findMostCommonWordLength() | TC2 | Jest unit test | Pass |
 
 ---
 
@@ -85,7 +89,7 @@ Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
 33
 
 **Expected value:**\
-Thrown error: 'The number is larger than the word count.
+Thrown error: 'The number is larger than the word count.'
 
 ---
 
@@ -114,7 +118,7 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 55
 
 **Expected value:**\
-Thrown error: 'The number is larger than the word count.
+Thrown error: 'The number is larger than the word count.'
 
 ---
 
@@ -143,6 +147,79 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 55
 
 **Expected value:**\
-Thrown error: 'The number is larger than the word count.
+Thrown error: 'The number is larger than the word count.'
 
 ---
+
+### Unit test/s content of findMedianWordLength()
+**TEST CASE 1**\
+Find the median word length of string with even word count.
+
+**Test string:**\
+'Tror ni att det här är malariayra?'
+
+**Argument:**\
+N/A
+
+**Expected value:**\
+3
+
+/
+
+**TEST CASE 2**\
+Find the median word length of string with uneven word count.
+
+**Test string:**\
+'Tror ni att det här är malariayra? Det har hänt.'
+
+**Argument:**\
+N/A
+
+**Expected value:**\
+3
+
+---
+
+### Unit test/s content of findMostCommonWordLength()
+**TEST CASE 1**\
+Find the most common word length.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
+
+**Argument:**\
+1
+
+**Expected value:**\
+[3]
+
+/
+
+**TEST CASE 2**\
+Find the 11 most common word length of string with less than 11 different word lengths.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
+
+**Argument:**\
+11
+
+**Expected value:**\
+Thrown error: 'The number is larger than the unique number of word lengths.'
+
+---
+
+### Unit test/s content of countAverageWordLength()
+**TEST CASE 1**\
+Find the average word length.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
+
+**Argument:**\
+1
+
+**Expected value:**\
+[3]
+
+/
