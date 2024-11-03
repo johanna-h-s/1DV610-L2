@@ -12,8 +12,25 @@ import { CharAnalyzer } from './helpers/CharAnalyzer.js'
  * Represents a text analyzer.
  */
 export class TextAnalyzer {
+  /**
+   * The provided string to analyze.
+   *
+   * @type {string}
+   */
   #stringToAnalyze
+
+  /**
+   * An instance of the helper class WordAnalyzer.
+   *
+   * @type {WordAnalyzer}
+   */
   #wordAnalyzer
+
+  /**
+   * An instance of the helper class CharAnalyzer.
+   *
+   * @type {CharAnalyzer}
+   */
   #charAnalyzer
 
   /**
