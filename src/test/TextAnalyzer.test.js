@@ -213,3 +213,64 @@ test('Find the average word length.', () => {
   expect(actualValue).toEqual(expectedValue)
 }
 )
+
+test('Count all characters, including whitespace.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  const expectedValue = 76
+
+  // Test.
+  const actualValue = textAnalyzer.countChars()
+
+  // Assert.
+  expect(actualValue).toEqual(expectedValue)
+}
+)
+
+test('Count all characters, except for whitespace.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  const expectedValue = 61
+
+  // Test.
+  const actualValue = textAnalyzer.countCharsMinusWhitespace()
+
+  // Assert.
+  expect(actualValue).toEqual(expectedValue)
+}
+)
+
+test('Find the 5 most common characters, sorted in order of frequenzy.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  const expectedValue = [' ', 'r', 'a', 't', 'e']
+
+  // Test.
+  const actualValue = textAnalyzer.findMostCommonChars(5)
+
+  // Assert.
+  expect(actualValue).toEqual(expectedValue)
+}
+)
+
+test('Find the 55 most common characters of string with less than 55 unique characters.', () => {
+  // Arrange and prepare.
+  const testText = 'Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.'
+
+  const textAnalyzer = new TextAnalyzer(testText)
+
+  // Test and assert.
+  expect(() => {
+    textAnalyzer.findMostCommonChars(55)
+  }).toThrow('The number is larger than the unique character count.')
+}
+)

@@ -1,5 +1,10 @@
 # Test report
 
+## Test results
+Version 1.0.0
+
+![Alt text](/src/test/testresult/test-result-2024-11-03.png "a title")
+
 ## Tests of class TextAnalyzer
 | Function | TC | Test type | Test result |
 | -------- | ------- | ------- | ------- |
@@ -16,6 +21,11 @@
 | findMedianWordLength() | TC2 | Jest unit test | Pass |
 | findMostCommonWordLength() | TC1 | Jest unit test | Pass |
 | findMostCommonWordLength() | TC2 | Jest unit test | Pass |
+| countAverageWordLength() | TC1 | Jest unit test | Pass |
+| countChars() | TC1 | Jest unit test | Pass |
+| countCharsMinusWhitespace() | TC1 | Jest unit test | Pass |
+| findMostCommonChars() | TC1 | Jest unit test | Pass |
+| findMostCommonChars() | TC2 | Jest unit test | Pass |
 
 ---
 
@@ -217,9 +227,68 @@ Find the average word length.
 Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
 
 **Argument:**\
-1
+N/A
 
 **Expected value:**\
-[3]
+3.2
+
+---
+
+### Unit test/s content of countChars()
+**TEST CASE 1**\
+Count all characters, including whitespace.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
+
+**Argument:**\
+N/A
+
+**Expected value:**\
+76
+
+---
+
+### Unit test/s content of countCharsMinusWhitespace()
+**TEST CASE 1**\
+Count all characters, except for whitespace.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
+
+**Argument:**\
+N/A
+
+**Expected value:**\
+61
+
+---
+
+### Unit test/s content of findMostCommonChars()
+**TEST CASE 1**\
+Find the 5 most common characters, sorted in order of frequenzy.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
+
+**Argument:**\
+5
+
+**Expected value:**\
+[' ', 'r', 'a', 't', 'e']
 
 /
+
+**TEST CASE 2**\
+Find the 55 most common characters of string with less than 55 unique characters.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
+
+**Argument:**\
+55
+
+**Expected value:**\
+Thrown error: 'The number is larger than the unique character count.'
+
+---

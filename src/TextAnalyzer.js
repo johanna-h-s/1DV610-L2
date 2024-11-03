@@ -295,12 +295,16 @@ export class TextAnalyzer {
     if (typeof numberOfChars !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
     } else if (numberOfChars > uniqueCharsFreqenzy.length) {
-      throw new Error('The number is larger than the char count.')
+      throw new Error('The number is larger than the unique character count.')
     }
 
     uniqueCharsFreqenzy.sort((a, b) => b[1].count - a[1].count)
 
-    const mostCommonChars = uniqueCharsFreqenzy.slice(0, numberOfChars).map(word => word[0])
+    console.log(uniqueCharsFreqenzy)
+
+    const mostCommonChars = uniqueCharsFreqenzy.slice(0, numberOfChars).map(char => char[0])
+
+    // TODO: add functionality to check if more than one character has the same frquency count.
 
     return mostCommonChars
   }
