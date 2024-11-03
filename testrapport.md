@@ -8,24 +8,47 @@ Version 1.0.0
 ## Tests of class TextAnalyzer
 | Function | TC | Test type | Test result |
 | -------- | ------- | ------- | ------- |
+| new TextAnalyzer() | TC1 | Jest unit test | Pass |
 | findUniqueWords() | TC1 | Jest unit test | Pass |
 | countWords() | TC1 | Jest unit test | Pass |
 | countUniqueWords() | TC1 | Jest unit test | Pass |
 | findMostCommonWords() | TC1 | Jest unit test | Pass |
 | findMostCommonWords() | TC2 | Jest unit test | Pass |
+| findMostCommonWords() | TC3 | Jest unit test | Pass |
+| findMostCommonWords() | TC4 | Jest unit test | Pass |
 | findLongestWord() | TC1 | Jest unit test | Pass |
 | findLongestWord() | TC2 | Jest unit test | Pass |
+| findLongestWord() | TC3 | Jest unit test | Pass |
+| findLongestWord() | TC4 | Jest unit test | Pass |
 | findShortestWord() | TC1 | Jest unit test | Pass |
 | findShortestWord() | TC2 | Jest unit test | Pass |
+| findShortestWord() | TC3 | Jest unit test | Pass |
+| findShortestWord() | TC4 | Jest unit test | Pass |
 | findMedianWordLength() | TC1 | Jest unit test | Pass |
 | findMedianWordLength() | TC2 | Jest unit test | Pass |
 | findMostCommonWordLength() | TC1 | Jest unit test | Pass |
 | findMostCommonWordLength() | TC2 | Jest unit test | Pass |
+| findMostCommonWordLength() | TC3 | Jest unit test | Pass |
+| findMostCommonWordLength() | TC4 | Jest unit test | Pass |
 | countAverageWordLength() | TC1 | Jest unit test | Pass |
 | countChars() | TC1 | Jest unit test | Pass |
 | countCharsMinusWhitespace() | TC1 | Jest unit test | Pass |
 | findMostCommonChars() | TC1 | Jest unit test | Pass |
 | findMostCommonChars() | TC2 | Jest unit test | Pass |
+| findMostCommonChars() | TC3 | Jest unit test | Pass |
+| findMostCommonChars() | TC4 | Jest unit test | Pass |
+
+---
+
+### Unit test/s content of new TextAnalyzer()
+**TEST CASE 1**\
+Initialize TextAnalyzer with a number.
+
+**Argument:**\
+3
+
+**Expected value:**\
+Thrown error: 'The text analyzer can only analyze strings. Please provide a string.'
 
 ---
 
@@ -101,6 +124,34 @@ Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
 **Expected value:**\
 Thrown error: 'The number is larger than the word count.'
 
+/
+
+**TEST CASE 3**\
+Pass a string as an argument to find the most common word/s.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+'tre'
+
+**Expected value:**\
+Thrown error: 'Passed argument is not a number. Please provide a number of type number.'
+
+/
+
+**TEST CASE 4**\
+Find the most common words without passing any argument.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+
+
+**Expected value:**\
+['ett', 'två']
+
 ---
 
 ### Unit test/s content of findLongestWord()
@@ -130,6 +181,34 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 **Expected value:**\
 Thrown error: 'The number is larger than the word count.'
 
+/
+
+**TEST CASE 3**\
+Pass a string as an argument to find the longest word/s.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+'tre'
+
+**Expected value:**\
+Thrown error: 'Passed argument is not a number. Please provide a number of type number.'
+
+/
+
+**TEST CASE 4**\
+Find the longest words without passing any argument.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
+
+**Argument:**\
+
+
+**Expected value:**\
+['malariayra']
+
 ---
 
 ### Unit test/s content of findShortestWord()
@@ -158,6 +237,34 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 
 **Expected value:**\
 Thrown error: 'The number is larger than the word count.'
+
+/
+
+**TEST CASE 3**\
+Pass a string as an argument to find the shortest word/s.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+'tre'
+
+**Expected value:**\
+Thrown error: 'Passed argument is not a number. Please provide a number of type number.'
+
+/
+
+**TEST CASE 4**\
+Find the shortest words without passing any argument.
+
+**Test string:**\
+Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
+
+**Argument:**\
+
+
+**Expected value:**\
+['i']
 
 ---
 
@@ -206,7 +313,7 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 /
 
 **TEST CASE 2**\
-Find the 11 most common word length of string with less than 11 different word lengths.
+Find the 11 most common word lengths of string with less than 11 different word lengths.
 
 **Test string:**\
 Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände. "Jag kommer klockan fyra" - sa Marija.
@@ -216,6 +323,34 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 
 **Expected value:**\
 Thrown error: 'The number is larger than the unique number of word lengths.'
+
+/
+
+**TEST CASE 3**\
+Pass a string as an argument to find the most common word lengt/s.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+'tre'
+
+**Expected value:**\
+Thrown error: 'Passed argument is not a number. Please provide a number of type number.'
+
+/
+
+**TEST CASE 4**\
+Find the most common word lengt/s without passing any argument
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+
+
+**Expected value:**\
+[3]
 
 ---
 
@@ -290,5 +425,33 @@ Tror ni att det här är malariayra? Det har hänt. Det var i Odessa det hände.
 
 **Expected value:**\
 Thrown error: 'The number is larger than the unique character count.'
+
+/
+
+**TEST CASE 3**\
+Pass a string as an argument to find the most common character/s.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+'tre'
+
+**Expected value:**\
+Thrown error: 'Passed argument is not a number. Please provide a number of type number.'
+
+/
+
+**TEST CASE 4**\
+Find the most common character/s without passing any argument.
+
+**Test string:**\
+Ett! ett. ett ett. Två, två, två. :) Tre. 3. Fyra. Fyra. Fem! Fém.
+
+**Argument:**\
+
+
+**Expected value:**\
+[' ']
 
 ---

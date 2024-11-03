@@ -119,7 +119,7 @@ export class TextAnalyzer {
    * @param {number} numberOfWords – Number of words to find.
    * @returns {Array} – The most used words in descending order.
    */
-  findMostCommonWords (numberOfWords = 10) {
+  findMostCommonWords (numberOfWords = 2) {
     const allUniqueWords = Object.entries(this.#wordAnalyzer.uniqueWordsFreqenzy)
 
     if (typeof numberOfWords !== 'number') {
@@ -224,7 +224,7 @@ export class TextAnalyzer {
    * @param {number} numberOfWordLengths – The number of word lengths to return.
    * @returns {Array} – The most common word lengths.
    */
-  findMostCommonWordLength (numberOfWordLengths = 10) {
+  findMostCommonWordLength (numberOfWordLengths = 1) {
     const allWords = this.#wordAnalyzer.allWords
 
     if (typeof numberOfWordLengths !== 'number') {
@@ -289,7 +289,7 @@ export class TextAnalyzer {
    * @param {number} numberOfChars – Number of chars to find.
    * @returns {Array} – The most common chars in descending order.
    */
-  findMostCommonChars (numberOfChars = 10) {
+  findMostCommonChars (numberOfChars = 1) {
     const uniqueCharsFreqenzy = Object.entries(this.#charAnalyzer.uniqueCharsFreqenzy)
 
     if (typeof numberOfChars !== 'number') {

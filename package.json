@@ -8,10 +8,12 @@
         "start": "node src/index.js",
         "lint": "npx eslint ./src || exit 0",
         "lint:fix": "npx eslint ./src --fix || exit 0",
-        "test": "npx --node-options=--experimental-vm-modules jest || exit 0"
+        "test": "npx  --node-options=--experimental-vm-modules jest || exit 0"
     },
     "jest": {
-      "transform": {}
+      "transform": {},
+      "collectCoverage": true,
+      "coverageReporters": ["text", "html"]
     },
     "contributors": [
         "Johanna Stenbeck <js226rv@student.lnu.se>"
