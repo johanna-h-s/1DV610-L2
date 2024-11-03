@@ -105,11 +105,13 @@ export class TextAnalyzer {
    * @returns {Array} – The most used words in descending order.
    */
   findMostCommonWords (numberOfWords = 10) {
+    const allUniqueWords = Object.entries(this.#wordAnalyzer.uniqueWordsFreqenzy)
+
     if (typeof numberOfWords !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
+    } else if (numberOfWords > allUniqueWords.length) {
+      throw new Error('The number is larger than the word count.')
     }
-
-    const allUniqueWords = Object.entries(this.#wordAnalyzer.uniqueWordsFreqenzy)
 
     allUniqueWords.sort((a, b) => b[1].count - a[1].count)
 
@@ -125,11 +127,13 @@ export class TextAnalyzer {
    * @returns { string } - The longest words of the analyzed string.
    */
   findLongestWord (numberOfWords = 1) {
+    const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
+
     if (typeof numberOfWords !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
+    } else if (numberOfWords > wordsAndLengts.length) {
+      throw new Error('The number is larger than the word count.')
     }
-
-    const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
 
     wordsAndLengts.sort((a, b) => b[1].chars - a[1].chars)
 
@@ -150,11 +154,13 @@ export class TextAnalyzer {
    * @returns { string } - The longest words of the analyzed string.
    */
   findShortestWord (numberOfWords = 1) {
+    const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
+
     if (typeof numberOfWords !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
+    } else if (numberOfWords > wordsAndLengts.length) {
+      throw new Error('The number is larger than the word count.')
     }
-
-    const wordsAndLengts = Object.entries(this.#wordAnalyzer.uniqueWordsLength)
 
     wordsAndLengts.sort((a, b) => a[1].chars - b[1].chars)
 
@@ -204,11 +210,14 @@ export class TextAnalyzer {
    * @returns {Array} – The most common word lengths.
    */
   findMostCommonWordLength (numberOfWordLengths = 10) {
+    const allWords = this.#wordAnalyzer.allWords
+
     if (typeof numberOfWordLengths !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
+    } else if (numberOfWordLengths > allWords.length) {
+      throw new Error('The number is larger than the word count.')
     }
 
-    const allWords = this.#wordAnalyzer.allWords
     const wordLengthCount = {}
 
     for (const word of allWords) {
@@ -266,11 +275,13 @@ export class TextAnalyzer {
    * @returns {Array} – The most common chars in descending order.
    */
   findMostCommonChars (numberOfChars = 10) {
+    const uniqueCharsFreqenzy = Object.entries(this.#charAnalyzer.uniqueCharsFreqenzy)
+
     if (typeof numberOfChars !== 'number') {
       throw new Error('Passed argument is not a number. Please provide a number of type number.')
+    } else if (numberOfChars > uniqueCharsFreqenzy.length) {
+      throw new Error('The number is larger than the char count.')
     }
-
-    const uniqueCharsFreqenzy = Object.entries(this.#charAnalyzer.uniqueCharsFreqenzy)
 
     uniqueCharsFreqenzy.sort((a, b) => b[1].count - a[1].count)
 
